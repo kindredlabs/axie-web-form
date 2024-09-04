@@ -3,20 +3,16 @@ import React from 'react'
 import Image from 'next/image';
 import BottomBar from "../components/BottomBar"
 import Button from '../components/Button';
-import { FaXTwitter, FaDiscord } from "react-icons/fa6";
+import { FaXTwitter, FaDiscord, FaArrowLeft } from "react-icons/fa6";
+import Link from 'next/link';
 
 export default function AxieForm() {
   return (
     <div className="absolute flex inset-0 bg-no-repeat bg-cover bg-axie overflow-y-scroll md:overflow-clip items-center from-[#4bd4fe] to-[#80d458]">
-      {/* background img */}
-      {/* <Image
-        alt=""
-        src={'/Axie_Main_BG3.jpg'}
-        draggable={false}
-        fill
-        className="object-cover object-left-top"
-        unoptimized
-      /> */}
+      {/* back arrow */}
+      <Link href={'/form'} className='absolute cursor-pointer z-10 top-5 left-5 hover:scale-110 duration-500'>
+        <FaArrowLeft className='size-8 md:size-12' />
+      </Link>
 
       {/* main content */}
       <div className="relative h-fit md:h-full px-10 flex w-full flex-col items-center justify-center">
@@ -42,7 +38,7 @@ export default function AxieForm() {
               contact us at <a href="mailto:hey@metapals.ai" className='font-semibold text-[#24e5ff]'>hey@metapals.ai</a>
             </p>
             <div>
-              <Button>
+              <Button externalLink="https://discord.gg/metapals">
                 <p className='px-4 py-1'>Find Out More</p>
 
               </Button>
@@ -50,8 +46,12 @@ export default function AxieForm() {
 
             {/* socials */}
             <div className='hidden justify-center h-fit pt-6 md:flex gap-4 w-full flex-row'>
-              <FaDiscord size={20} />
-              <FaXTwitter size={20} />
+              <Link target='_blank' href={"https://discord.gg/metapals"}>
+                <FaDiscord size={24} />
+              </Link>
+              <Link target='_blank' href={"https://x.com/MetaPals"}>
+                <FaXTwitter size={20} />
+              </Link>
             </div>
 
             {/* axie pic */}
@@ -67,8 +67,12 @@ export default function AxieForm() {
 
         {/* socials */}
         <div className='h-fit md:hidden pt-6 flex gap-4 w-full justify-center flex-row'>
-          <FaDiscord size={20} />
-          <FaXTwitter size={20} />
+          <Link target='_blank' href={"https://discord.gg/metapals"}>
+            <FaDiscord size={24} />
+          </Link>
+          <Link target='_blank' href={"https://x.com/MetaPals"}>
+            <FaXTwitter size={20} />
+          </Link>
         </div>
 
         {/* Axie pic */}
