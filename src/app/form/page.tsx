@@ -3,20 +3,16 @@ import React from 'react'
 import Image from 'next/image';
 import BottomBar from "../components/BottomBar"
 import Button from '../components/Button';
-import { FaXTwitter, FaDiscord } from "react-icons/fa6";
+import { FaXTwitter, FaDiscord, FaArrowLeft } from "react-icons/fa6";
+import Link from 'next/link';
 
 export default function AxieForm() {
   return (
     <div className="absolute flex inset-0 bg-no-repeat bg-cover bg-axie overflow-y-scroll md:overflow-clip from-[#4bd4fe] to-[#80d458]">
-      {/* background img */}
-      {/* <Image
-        alt=""
-        src={'/Axie_Main_BG3.jpg'}
-        draggable={false}
-        fill
-        className="object-cover object-left-top"
-        unoptimized
-      /> */}
+      {/* back arrow */}
+      <Link href={'/'} className='absolute cursor-pointer z-10 top-5 left-5 hover:scale-110 duration-500'>
+        <FaArrowLeft className='size-8 md:size-12' />
+      </Link>
 
       {/* main content */}
       <div className="relative h-fit md:h-full px-10 flex w-full flex-col items-center justify-center">
@@ -24,7 +20,7 @@ export default function AxieForm() {
 
           {/* main title */}
           <div className='text-center md:text-left flex flex-col'>
-            <h1 className="py-8 text-4xl font-bold px-4 md:px-0 ">
+            <h1 className="pb-8 pt-16 text-4xl font-bold px-4 md:px-0 ">
               Be an Early Adopter of Axie Companions!
             </h1>
             <p >
@@ -42,8 +38,12 @@ export default function AxieForm() {
 
             {/* socials */}
             <div className='hidden h-fit pt-6 md:flex gap-4 w-full flex-row'>
-              <FaDiscord size={20} />
-              <FaXTwitter size={20} />
+              <Link target='_blank' href={"https://discord.gg/metapals"}>
+                <FaDiscord size={24} />
+              </Link>
+              <Link target='_blank' href={"https://x.com/MetaPals"}>
+                <FaXTwitter size={20} />
+              </Link>
             </div>
 
             {/* axie pic */}
@@ -52,7 +52,7 @@ export default function AxieForm() {
               src={'/Axie_1.png'}
               height={100}
               width={100}
-              className='pt-12 w-48 -ml-8 hidden md:block'
+              className='pt-12 w-40 -ml-8 hidden md:block'
             />
           </div>
 
@@ -88,8 +88,13 @@ export default function AxieForm() {
 
         {/* socials */}
         <div className='h-fit md:hidden pt-6 flex gap-4 w-full justify-center flex-row'>
-          <FaDiscord size={20} />
-          <FaXTwitter size={20} />
+          <Link target='_blank' href={"https://discord.gg/metapals"}>
+            <FaDiscord size={24} />
+          </Link>
+          <Link target='_blank' href={"https://x.com/MetaPals"}>
+            <FaXTwitter size={20} />
+          </Link>
+
         </div>
 
         {/* Axie pic */}

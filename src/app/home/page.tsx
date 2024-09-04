@@ -41,7 +41,7 @@ export default function AxieHome() {
           <p className="md:px-4 font-medium pb-2">
             Sign up for a chance to be an early adopter of the Axie digital companion!
           </p>
-          <Button>
+          <Button link="/form">
             <p className="px-4 py-1 text-lg font-bold">
               Be an Early Adopter
             </p>
