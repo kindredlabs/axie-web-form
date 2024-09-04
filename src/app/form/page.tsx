@@ -48,6 +48,7 @@ export default function AxieForm() {
 
             {/* axie pic */}
             <Image
+              alt='axie pic'
               src={'/Axie_1.png'}
               height={100}
               width={100}
@@ -93,6 +94,7 @@ export default function AxieForm() {
 
         {/* Axie pic */}
         <Image
+          alt='axie pic'
           src={'/Axie_1.png'}
           height={100}
           width={100}

@@ -2,7 +2,6 @@
 import React from "react"
 import Image from "next/image"
 import Button from "../components/Button"
-import AxieAdoptModal from "./axie.adopt-modal"
 import BottomBar from "../components/BottomBar"
 import Link from "next/link"
 
