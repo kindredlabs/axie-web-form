@@ -80,7 +80,7 @@ export default function AxieForm() {
           alt='axie pic'
           src={'/Axie_1.png'}
           height={100}
-          width={100}
+          width={100} 
           className='w-24 pt-12 self-start -ml-8 md:hidden block'
         />
 
