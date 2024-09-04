@@ -1,11 +1,11 @@
 "use server"
 
 interface axieFormInterface {
-  name: "string"
-  email: "string"
-  roninWalletAddress: "string"
-  xUsername: "string"
-  discordUsername: "string"
+  name: string
+  email: string
+  roninWalletAddress: string
+  xUsername: string
+  discordUsername: string
 }
 
 export async function AxieSendForm({

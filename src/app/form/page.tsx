@@ -9,6 +9,10 @@ import z from "zod"
 import { useState } from "react"
 import { AxieSendForm } from "../components/api/AxieSendForm"
 
+interface inputChangeType {
+  target: { name: string; value: string }
+}
+
 const formSchema = z.object({
   name: z
     .string()
