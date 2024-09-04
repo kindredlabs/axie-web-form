@@ -74,13 +74,13 @@ export default function AxieForm() {
               <input placeholder='X Username*' type='text' className='border-b-2 border-b-gray-300 rounded-sm p-2 w-full ' />
             </div>
 
-            <button type='submit' className='w-full pt-4 flex justify-center md:justify-start'>
+            <div className='w-full pt-4 flex justify-center md:justify-start'>
               <Button>
                 <p className='px-6 py-1'>
                   Submit
                 </p>
               </Button>
-            </button>
+            </div>
             <div>
             </div>
           </form>
