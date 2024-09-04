@@ -52,7 +52,7 @@ export default function () {
             </div>
             <p
               className={
-                "text-center px-10 md:px-0 font-semibold tracking-normal  md:text-right md:text-xl md:tracking-widest"
+                "text-center px-10 md:px-0 font-semibold md:text-right md:text-xl"
               }
             >
               Join our{" "}
