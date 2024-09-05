@@ -8,6 +8,7 @@ import Link from "next/link"
 import z from "zod"
 import { useState } from "react"
 import { AxieSendForm } from "../components/api/AxieSendForm"
+import { useRouter } from "next/navigation"
 
 interface inputChangeType {
   target: { name: string; value: string }
@@ -27,6 +28,7 @@ const formSchema = z.object({
 })
 
 export default function AxieForm() {
+  const router = useRouter()
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -41,6 +43,7 @@ export default function AxieForm() {
     roninWalletAddress: "",
     xUsername: "",
     discordUsername: "",
+    server: "",
   })
 
   const handleInputChange = (event: inputChangeType) => {
@@ -54,6 +57,7 @@ export default function AxieForm() {
       roninWalletAddress: "",
       xUsername: "",
       discordUsername: "",
+      server: "",
     })
 
     try {
@@ -68,18 +72,14 @@ export default function AxieForm() {
       })
       console.log(response)
       if (response.errors) {
-        alert("Error! " + response.message)
-        console.log("error message", response.message)
+        console.log("error message", response.errors)
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          server: response.errors.message,
+        }))
       }
       if (response.uid) {
-        alert("Success!")
-        setForm({
-          name: "",
-          email: "",
-          roninWalletAddress: "",
-          xUsername: "",
-          discordUsername: "",
-        })
+        router.push("/notice")
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -154,7 +154,7 @@ export default function AxieForm() {
             <p className="text-xl font-bold">Form Submission</p>
 
             <div className="flex flex-col gap-4 md:flex-row">
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 {/* Name Field */}
                 <input
                   onChange={(e) =>
@@ -173,7 +173,7 @@ export default function AxieForm() {
               </div>
 
               {/* Email Field */}
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 <input
                   onChange={(e) =>
                     handleInputChange({
@@ -214,7 +214,7 @@ export default function AxieForm() {
 
             {/* Discord Field */}
             <div className="flex flex-col gap-4 md:flex-row">
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 <input
                   onChange={(e) =>
                     handleInputChange({
@@ -235,7 +235,7 @@ export default function AxieForm() {
               </div>
 
               {/* X Field */}
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 <input
                   onChange={(e) =>
                     handleInputChange({
@@ -256,10 +256,13 @@ export default function AxieForm() {
               </div>
             </div>
 
-            <div className="flex w-full justify-center pt-4 md:justify-start">
+            <div className="flex w-full flex-col justify-center pt-4 md:justify-start">
               <Button onClick={() => handleSubmit()}>
                 <p className="px-6 py-1">Submit</p>
               </Button>
+              <p className={`h-4 text-center text-red-400`}>
+                {errors.server && "Error! " + errors.server}
+              </p>
             </div>
             <div></div>
           </form>
@@ -286,8 +289,17 @@ export default function AxieForm() {
 
         {/* spacer */}
         <div className="block h-[15dvh] w-full"></div>
+
+        {/* sticky bottom bar for mobile */}
+        <div className="sticky bottom-0 w-screen md:hidden">
+          <BottomBar />
+        </div>
       </div>
-      <BottomBar />
+
+      {/* bottom bar for desktop */}
+      <div className="hidden md:block">
+        <BottomBar />
+      </div>
     </div>
   )
 }
