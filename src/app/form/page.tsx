@@ -1,4 +1,5 @@
 "use client"
+
 import React from "react"
 import Image from "next/image"
 import BottomBar from "../components/BottomBar"
@@ -8,6 +9,8 @@ import Link from "next/link"
 import z from "zod"
 import { useState } from "react"
 import { AxieSendForm } from "../components/api/AxieSendForm"
+import { useRouter } from "next/navigation"
+import { URL_DISCORD, URL_TWITTER } from "../urls"
 
 interface inputChangeType {
   target: { name: string; value: string }
@@ -27,6 +30,7 @@ const formSchema = z.object({
 })
 
 export default function AxieForm() {
+  const router = useRouter()
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -41,6 +45,7 @@ export default function AxieForm() {
     roninWalletAddress: "",
     xUsername: "",
     discordUsername: "",
+    server: "",
   })
 
   const handleInputChange = (event: inputChangeType) => {
@@ -54,6 +59,7 @@ export default function AxieForm() {
       roninWalletAddress: "",
       xUsername: "",
       discordUsername: "",
+      server: "",
     })
 
     try {
@@ -68,18 +74,14 @@ export default function AxieForm() {
       })
       console.log(response)
       if (response.errors) {
-        alert("Error! " + response.message)
-        console.log("error message", response.message)
+        console.log("error message", response.errors)
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          server: response.errors.message,
+        }))
       }
       if (response.uid) {
-        alert("Success!")
-        setForm({
-          name: "",
-          email: "",
-          roninWalletAddress: "",
-          xUsername: "",
-          discordUsername: "",
-        })
+        router.push("/notice")
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -102,7 +104,7 @@ export default function AxieForm() {
   }
 
   return (
-    <div className="absolute inset-0 flex overflow-y-scroll bg-axie from-[#4bd4fe] to-[#80d458] bg-cover bg-no-repeat md:overflow-clip">
+    <div className="absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
       {/* back arrow */}
       <Link
         href={"/"}
@@ -115,9 +117,9 @@ export default function AxieForm() {
       <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 md:h-full">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
-          <div className="flex flex-col text-center md:text-left">
-            <h1 className="px-4 pb-8 pt-16 text-4xl font-bold md:px-0">
-              Be an Early Adopter of Axie Companions!
+          <div className="flex flex-col px-4 text-center md:w-1/2 md:px-10 md:text-left">
+            <h1 className="pb-8 pt-16 text-4xl font-bold">
+              Get Early Access of Our Axie Companions!
             </h1>
             <p>
               Make your free time more fun with MetaPals! Our Axie companions
@@ -132,29 +134,20 @@ export default function AxieForm() {
 
             {/* socials */}
             <div className="hidden h-fit w-full flex-row gap-4 pt-6 md:flex">
-              <Link target="_blank" href={"https://discord.gg/metapals"}>
+              <Link target="_blank" href={URL_DISCORD}>
                 <FaDiscord size={24} />
               </Link>
-              <Link target="_blank" href={"https://x.com/MetaPals"}>
+              <Link target="_blank" href={URL_TWITTER}>
                 <FaXTwitter size={20} />
               </Link>
             </div>
-
-            {/* axie pic */}
-            <Image
-              alt="axie pic"
-              src={"/Axie_1.png"}
-              height={100}
-              width={100}
-              className="-ml-8 hidden w-40 pt-12 md:block"
-            />
           </div>
 
-          <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10">
+          <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10 md:w-1/2">
             <p className="text-xl font-bold">Form Submission</p>
 
             <div className="flex flex-col gap-4 md:flex-row">
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 {/* Name Field */}
                 <input
                   onChange={(e) =>
@@ -173,7 +166,7 @@ export default function AxieForm() {
               </div>
 
               {/* Email Field */}
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 <input
                   onChange={(e) =>
                     handleInputChange({
@@ -214,7 +207,7 @@ export default function AxieForm() {
 
             {/* Discord Field */}
             <div className="flex flex-col gap-4 md:flex-row">
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 <input
                   onChange={(e) =>
                     handleInputChange({
@@ -235,7 +228,7 @@ export default function AxieForm() {
               </div>
 
               {/* X Field */}
-              <div className="flex w-1/2 flex-col">
+              <div className="flex flex-col md:w-1/2">
                 <input
                   onChange={(e) =>
                     handleInputChange({
@@ -256,10 +249,13 @@ export default function AxieForm() {
               </div>
             </div>
 
-            <div className="flex w-full justify-center pt-4 md:justify-start">
-              <Button onClick={() => handleSubmit()}>
+            <div className="flex w-full flex-col justify-center pt-4 md:w-fit md:justify-start">
+              <Button theme="axie_purple" onClick={() => handleSubmit()}>
                 <p className="px-6 py-1">Submit</p>
               </Button>
+              <p className={`h-4 text-center text-red-400`}>
+                {errors.server && "Error! " + errors.server}
+              </p>
             </div>
             <div></div>
           </form>
@@ -267,36 +263,17 @@ export default function AxieForm() {
 
         {/* socials */}
         <div className="flex h-fit w-full flex-row justify-center gap-4 pt-6 md:hidden">
-          <Link target="_blank" href={"https://discord.gg/metapals"}>
+          <Link target="_blank" href={URL_DISCORD}>
             <FaDiscord size={24} />
           </Link>
-          <Link target="_blank" href={"https://x.com/MetaPals"}>
+          <Link target="_blank" href={URL_TWITTER}>
             <FaXTwitter size={20} />
           </Link>
         </div>
-
-        {/* Axie pic */}
-        <Image
-          alt="axie pic"
-          src={"/Axie_1.png"}
-          height={100}
-          width={100}
-          className="-ml-8 block w-24 self-start md:hidden"
-        />
-
         {/* spacer */}
-        <div className="block h-[15dvh] w-full"></div>
-
-        {/* sticky bottom bar for mobile */}
-        <div className="sticky bottom-0 w-screen md:hidden">
-          <BottomBar />
-        </div>
+        <div className="block h-[18dvh] w-full"></div>
       </div>
-
-      {/* bottom bar for desktop */}
-      <div className="hidden md:block">
-        <BottomBar />
-      </div>
+      <BottomBar />
     </div>
   )
 }

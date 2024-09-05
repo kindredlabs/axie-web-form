@@ -1,4 +1,5 @@
 "use server"
+import { URL_AXIE_FORM } from "@/app/urls"
 
 interface axieFormInterface {
   name: string
@@ -15,8 +16,6 @@ export async function AxieSendForm({
   xUsername,
   discordUsername,
 }: axieFormInterface) {
-  const URL_AXIE_FORM =
-    "https://dev.api.metapals.ai/api/v1/sanctuary/axie-early-access"
   try {
     const res = await fetch(URL_AXIE_FORM, {
       method: "POST",

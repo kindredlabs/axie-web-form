@@ -4,54 +4,41 @@ import Image from "next/image"
 import Button from "../components/Button"
 import BottomBar from "../components/BottomBar"
 import Link from "next/link"
+import { URL_EXTENSION_STORE } from "../urls"
 
 export default function AxieHome() {
   return (
-    <div className="absolute flex bg-no-repeat bg-cover bg-axie items-center justify-center inset-0 from-[#4bd4fe] to-[#80d458]">
-      {/* background img */}
-      {/* <Image
-        alt=""
-        src={'/Axie_Main_BG3.jpg'}
-        draggable={false}
-        fill
-        className="object-cover object-left-top"
-        unoptimized
-      /> */}
-
+    <div className="absolute inset-0 flex items-center justify-center bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-axie">
       {/* main content */}
-      <div className="absolute self-center flex w-full flex-col items-center justify-center pb-24">
+      <div className="absolute flex w-full flex-col items-center justify-center self-center pb-24">
         {/* axie logo */}
         <Image
           alt=""
           height={300}
           width={300}
-          className="w-72 md:w-90"
-          src={'/Axie_Logo.png'}
+          className="md:w-90 w-64 pb-10"
+          src={"/Axie_Logo.webp"}
           draggable={false}
         />
-        <h1 className="pb-8 text-2xl font-bold px-12 md:px-0 text-center">
-          THE OFFICIAL AXIE COMPANIONS
-        </h1>
 
         {/* buttons */}
-        <div className="flex items-center aspect-video w-80 md:w-[30rem] bg-white/75 border-4 text-center text-black border-white flex-col gap-2 p-2 md:p-6 rounded-xl">
-          <p className="font-bold text-2xl">
+        <div className="flex aspect-video w-80 flex-col items-center gap-2 rounded-xl border-4 border-white bg-white/75 p-2 text-center text-black md:w-[30rem] md:p-6">
+          <p className="text-2xl font-bold">
             Meet your Axie Companion with MetaPals!
           </p>
-          <p className="md:px-4 font-medium pb-2">
-            Sign up for a chance to be an early adopter of the Axie digital companion!
+          <p className="px-2 pb-2 text-sm font-medium md:px-4">
+            Sign up for a chance to be an early adopter of the Axie digital
+            companion!
           </p>
-          <Button link="/form">
-            <p className="px-4 py-1 text-lg font-bold">
-              Be an Early Adopter
-            </p>
+          <Button theme="axie_purple" link="/form">
+            <p className="px-4 py-1 text-lg font-medium">Be an Early Adopter</p>
           </Button>
           <p className="pt-2 text-sm md:text-base">
-            Curious about the Axie digital companion?
+            Don't have MetaPals extension?
           </p>
-          <Link href={"https://discord.gg/metapals"}>
-            <p className="text-sm underline text-[#5339D6] font-semibold">
-              Find Out More!
+          <Link href={URL_EXTENSION_STORE}>
+            <p className="text-sm font-semibold text-[#5339D6] underline">
+              Download here
             </p>
           </Link>
         </div>

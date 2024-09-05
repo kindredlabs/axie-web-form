@@ -4,84 +4,68 @@ import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Button from "./Button"
 import Link from "next/link"
+import { URL_DISCORD } from "../urls"
 
 export default function () {
   return (
     <div
       className={
-        "absolute inset-x-0 bottom-0 z-10 h-fit bg-white md:h-14 lg:h-24"
+        "fixed bottom-0 z-10 h-fit w-full bg-white bg-cover bg-center bg-no-repeat md:h-14 md:bg-transparent md:bg-bottom_bar lg:h-32"
       }
     >
+      {/* <Image src={"/Axie_Bottom_BG.png"} fill /> */}
       <span
         className={
-          "flex h-full flex-col items-center justify-between px-5 py-3 md:flex-row md:gap-5 md:py-1 lg:gap-0 lg:py-3"
+          "flex h-full flex-col items-center justify-between gap-2 px-5 py-3 md:flex-row md:gap-5 md:py-1 lg:gap-0 lg:py-3"
         }
       >
-        <div className={"flex items-center gap-3 lg:gap-6"}>
-          <div className={"hidden size-8 md:block lg:size-14"}>
-            <Image width={300} height={300} alt={""} src={'/metapals-icon.png'} draggable={false} />
-          </div>
-          <div className={"text-center md:text-left"}>
-            <span className={"text-[#4a4d61]"}>
-              <p
-                className={
-                  "text-xs font-medium uppercase leading-none tracking-wide lg:text-base"
-                }
-              >
-                COUNTDOWN TO AXIE LAUNCH
-              </p>
-              {/* TODO: convert to unix time and pass target via props */}
-              <Countdown />
-            </span>
-          </div>
+        {/* left / highest part */}
+        <div className="hidden size-24 items-end gap-4 md:flex md:w-1/3">
+          <p className="font-medium italic text-black">Powered by</p>
+          <Image
+            width={80}
+            height={80}
+            alt={""}
+            src={"/Axie_Pal_Logo.svg"}
+            draggable={false}
+          />
         </div>
+
+        {/* middle part */}
         <div
           className={
-            "flex flex-col items-center gap-1 text-right md:flex-row md:gap-5"
+            "flex w-full flex-col items-center justify-center gap-3 md:w-1/3"
           }
         >
-          <div
+          <p
             className={
-              "flex flex-col-reverse items-end text-right text-[#1D2037] md:flex-col"
+              "text-xs font-medium uppercase leading-none tracking-wide text-[#787878] md:text-base"
             }
           >
-            <div className={"md:flex hidden"}>
-              <p className={"w-[70dvw] text-xs md:w-auto md:text-base"}>
-                Early adoption will be closed on September 12 (UTC 02:00)
-              </p>
-            </div>
-            <p
-              className={
-                "text-center px-10 md:px-0 font-semibold md:text-right md:text-xl"
-              }
-            >
-              Join our{" "}
-              <span className={"text-[#5339D6] underline"}>
+            COUNTDOWN TO AXIE LAUNCH
+          </p>
+          {/* TODO: convert to unix time and pass target via props */}
+          <Countdown />
+        </div>
 
-                <Link href={"https://discord.gg/metapals"}>Discord</Link>
-              </span>
-              {" "}
-              to be part of Early Adopter list!
-            </p>
-          </div>
-
-          {/*auth button*/}
-          {/* <span className={"hidden md:block"}>
-            <Button theme={"white"}>
-              <div
-                className={
-                  "flex h-10 items-center justify-center px-8 font-bold tracking-widest lg:h-14 lg:px-11 lg:text-xl"
-                }
-              >
-                SIGN
-              </div>
-            </Button>
-          </span>
-          <span className={"md:hidden"}>
-            <button type={"button"}>
-              <p className={"text-sm underline"}>SIGN</p>
-            </button>
-          </span> */}
+        {/* right / lowest part */}
+        <div
+          className={
+            "flex w-full flex-col items-center justify-center text-[#1D2037] md:mt-12 md:w-1/3 md:items-end"
+          }
+        >
+          <p
+            className={"hidden text-right text-xs md:flex md:w-auto md:text-sm"}
+          >
+            Early access will be closed on September 12 (UTC 02:00)
+          </p>
+          <p className={"text-right text-sm font-semibold md:text-base"}>
+            Join our{" "}
+            <span className={"text-[#5339D6] underline"}>
+              <Link href={URL_DISCORD}>Discord</Link>
+            </span>{" "}
+            for news and updates!
+          </p>
         </div>
       </span>
     </div>
@@ -137,15 +121,23 @@ function Countdown() {
   }
 
   return (
-    <div
-      className={
-        "text-lg font-bold leading-none tracking-wide lg:text-2xl py-2 md:py-0"
-      }
-    >
-      {renderTime(dayLeft)} {dayLeft >= 2 ? "days" : "day"} :{" "}
-      {renderTime(hourLeft)} {hourLeft >= 2 ? "hours" : "hour"} :{" "}
-      {renderTime(minuteLeft)} {minuteLeft >= 2 ? "mins" : "min"} :{" "}
-      {renderTime(secondLeft)} {secondLeft >= 2 ? "secs" : "sec"}
+    <div className="rounded-md bg-gradient-to-r from-[#24E5FF]/15 via-[#9E6CE0]/15 to-[#F988FF]/15 px-2 py-3">
+      <div
+        className={
+          "bg-gradient-to-r from-[#24E5FF] via-[#9E6CE0] to-[#F988FF] bg-clip-text text-lg font-bold leading-none tracking-wide text-transparent lg:text-4xl"
+        }
+      >
+        <p className="block md:hidden">
+          {renderTime(dayLeft)} {dayLeft >= 2 ? "days" : "day"} :{" "}
+          {renderTime(hourLeft)} {hourLeft >= 2 ? "hours" : "hour"} :{" "}
+          {renderTime(minuteLeft)} {minuteLeft >= 2 ? "mins" : "min"} :{" "}
+          {renderTime(secondLeft)} {secondLeft >= 2 ? "secs" : "sec"}
+        </p>
+        <p className="hidden md:block">
+          {renderTime(dayLeft)} {"d"} : {renderTime(hourLeft)} {"h"} :{" "}
+          {renderTime(minuteLeft)} {"m"} : {renderTime(secondLeft)} {"s"}
+        </p>
+      </div>
     </div>
   )
 }
