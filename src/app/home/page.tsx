@@ -7,17 +7,7 @@ import Link from "next/link"
 
 export default function AxieHome() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-axie from-[#4bd4fe] to-[#80d458] bg-cover bg-no-repeat">
-      {/* background img */}
-      {/* <Image
-        alt=""
-        src={'/Axie_Main_BG3.jpg'}
-        draggable={false}
-        fill
-        className="object-cover object-left-top"
-        unoptimized
-      /> */}
-
+    <div className="bg-mobile absolute inset-0 flex items-center justify-center from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-axie">
       {/* main content */}
       <div className="absolute flex w-full flex-col items-center justify-center self-center pb-24">
         {/* axie logo */}
@@ -32,12 +22,14 @@ export default function AxieHome() {
 
         <div>
           <Image
+            alt="axie title"
             height={200}
             width={500}
             src={"/Axie_Title.png"}
             className="hidden md:block md:scale-150"
           />
           <Image
+            alt="axie title"
             height={100}
             width={200}
             src={"/Axie_Title_Mobile.png"}

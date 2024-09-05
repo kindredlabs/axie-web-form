@@ -102,7 +102,7 @@ export default function AxieForm() {
   }
 
   return (
-    <div className="absolute inset-0 flex overflow-y-scroll bg-axie from-[#4bd4fe] to-[#80d458] bg-cover bg-no-repeat md:overflow-clip">
+    <div className="bg-mobile md:bg-form absolute inset-0 flex overflow-y-scroll from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
       {/* back arrow */}
       <Link
         href={"/"}
@@ -139,15 +139,6 @@ export default function AxieForm() {
                 <FaXTwitter size={20} />
               </Link>
             </div>
-
-            {/* axie pic */}
-            <Image
-              alt="axie pic"
-              src={"/Axie_1.png"}
-              height={100}
-              width={100}
-              className="-ml-8 hidden w-40 pt-12 md:block"
-            />
           </div>
 
           <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10">
@@ -277,29 +268,10 @@ export default function AxieForm() {
             <FaXTwitter size={20} />
           </Link>
         </div>
-
-        {/* Axie pic */}
-        <Image
-          alt="axie pic"
-          src={"/Axie_1.png"}
-          height={100}
-          width={100}
-          className="-ml-8 block w-24 self-start md:hidden"
-        />
-
         {/* spacer */}
-        <div className="block h-[15dvh] w-full"></div>
-
-        {/* sticky bottom bar for mobile */}
-        <div className="sticky bottom-0 w-screen md:hidden">
-          <BottomBar />
-        </div>
+        <div className="block h-[18dvh] w-full"></div>
       </div>
-
-      {/* bottom bar for desktop */}
-      <div className="hidden md:block">
-        <BottomBar />
-      </div>
+      <BottomBar />
     </div>
   )
 }

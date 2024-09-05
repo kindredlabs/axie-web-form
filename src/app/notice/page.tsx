@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export default function AxieForm() {
   return (
-    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-axie from-[#4bd4fe] to-[#80d458] bg-cover bg-no-repeat md:overflow-clip">
+    <div className="bg-mobile md:bg-form absolute inset-0 flex items-center overflow-y-scroll from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
       {/* back arrow */}
       <Link
         href={"/form"}
@@ -17,7 +17,7 @@ export default function AxieForm() {
       </Link>
 
       {/* main content */}
-      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 md:h-full">
+      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-12 md:h-full">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
           <div className="flex flex-col text-center md:w-[32rem]">
@@ -55,15 +55,6 @@ export default function AxieForm() {
                 <FaXTwitter size={20} />
               </Link>
             </div>
-
-            {/* axie pic */}
-            <Image
-              alt="axie pic"
-              src={"/Axie_1.png"}
-              height={100}
-              width={100}
-              className="-ml-8 hidden w-36 pt-6 md:block"
-            />
           </div>
         </div>
 
@@ -76,15 +67,6 @@ export default function AxieForm() {
             <FaXTwitter size={20} />
           </Link>
         </div>
-
-        {/* Axie pic */}
-        <Image
-          alt="axie pic"
-          src={"/Axie_1.png"}
-          height={100}
-          width={100}
-          className="-ml-8 block w-24 self-start pt-12 md:hidden"
-        />
       </div>
       <BottomBar />
     </div>
