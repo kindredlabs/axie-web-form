@@ -116,9 +116,9 @@ export default function AxieForm() {
       <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 md:h-full">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
-          <div className="flex flex-col text-center md:text-left">
-            <h1 className="px-4 pb-8 pt-16 text-4xl font-bold md:px-0">
-              Be an Early Adopter of Axie Companions!
+          <div className="flex flex-col px-4 text-center md:w-1/2 md:px-10 md:text-left">
+            <h1 className="pb-8 pt-16 text-4xl font-bold">
+              Get Early Access of Our Axie Companions!
             </h1>
             <p>
               Make your free time more fun with MetaPals! Our Axie companions
@@ -142,7 +142,7 @@ export default function AxieForm() {
             </div>
           </div>
 
-          <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10">
+          <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10 md:w-1/2">
             <p className="text-xl font-bold">Form Submission</p>
 
             <div className="flex flex-col gap-4 md:flex-row">
@@ -248,7 +248,7 @@ export default function AxieForm() {
               </div>
             </div>
 
-            <div className="flex w-full flex-col justify-center pt-4 md:justify-start">
+            <div className="flex w-full flex-col justify-center pt-4 md:w-fit md:justify-start">
               <Button theme="axie_purple" onClick={() => handleSubmit()}>
                 <p className="px-6 py-1">Submit</p>
               </Button>

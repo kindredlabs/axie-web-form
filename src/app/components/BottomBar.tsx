@@ -121,7 +121,7 @@ function Countdown() {
   }
 
   return (
-    <div className="rounded-md bg-gradient-to-r from-[#24E5FF]/15 via-[#9E6CE0]/15 to-[#F988FF]/15 px-4 py-3">
+    <div className="rounded-md bg-gradient-to-r from-[#24E5FF]/15 via-[#9E6CE0]/15 to-[#F988FF]/15 px-2 py-3">
       <div
         className={
           "bg-gradient-to-r from-[#24E5FF] via-[#9E6CE0] to-[#F988FF] bg-clip-text text-lg font-bold leading-none tracking-wide text-transparent lg:text-4xl"
