@@ -26,7 +26,7 @@ export default function AxieHome() {
           <p className="text-2xl font-bold">
             Meet your Axie Companion with MetaPals!
           </p>
-          <p className="pb-2 font-medium md:px-4">
+          <p className="pb-2 px-2 text-sm font-medium md:px-4">
             Sign up for a chance to be an early adopter of the Axie digital
             companion!
           </p>
