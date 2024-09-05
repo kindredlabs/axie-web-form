@@ -9,6 +9,7 @@ import z from "zod"
 import { useState } from "react"
 import { AxieSendForm } from "../components/api/AxieSendForm"
 import { useRouter } from "next/navigation"
+import { URL_DISCORD, URL_TWITTER } from "../urls"
 
 interface inputChangeType {
   target: { name: string; value: string }
@@ -102,7 +103,7 @@ export default function AxieForm() {
   }
 
   return (
-    <div className="bg-mobile md:bg-form absolute inset-0 flex overflow-y-scroll from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
+    <div className="absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
       {/* back arrow */}
       <Link
         href={"/"}
@@ -132,10 +133,10 @@ export default function AxieForm() {
 
             {/* socials */}
             <div className="hidden h-fit w-full flex-row gap-4 pt-6 md:flex">
-              <Link target="_blank" href={"https://discord.gg/metapals"}>
+              <Link target="_blank" href={URL_DISCORD}>
                 <FaDiscord size={24} />
               </Link>
-              <Link target="_blank" href={"https://x.com/MetaPals"}>
+              <Link target="_blank" href={URL_TWITTER}>
                 <FaXTwitter size={20} />
               </Link>
             </div>
@@ -261,10 +262,10 @@ export default function AxieForm() {
 
         {/* socials */}
         <div className="flex h-fit w-full flex-row justify-center gap-4 pt-6 md:hidden">
-          <Link target="_blank" href={"https://discord.gg/metapals"}>
+          <Link target="_blank" href={URL_DISCORD}>
             <FaDiscord size={24} />
           </Link>
-          <Link target="_blank" href={"https://x.com/MetaPals"}>
+          <Link target="_blank" href={URL_TWITTER}>
             <FaXTwitter size={20} />
           </Link>
         </div>

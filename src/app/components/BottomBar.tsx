@@ -4,12 +4,13 @@ import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Button from "./Button"
 import Link from "next/link"
+import { URL_DISCORD } from "../urls"
 
 export default function () {
   return (
     <div
       className={
-        "md:bg-bottom_bar fixed bottom-0 z-10 h-fit w-full bg-white bg-cover bg-center bg-no-repeat md:h-14 md:bg-transparent lg:h-32"
+        "fixed bottom-0 z-10 h-fit w-full bg-white bg-cover bg-center bg-no-repeat md:h-14 md:bg-transparent md:bg-bottom_bar lg:h-32"
       }
     >
       {/* <Image src={"/Axie_Bottom_BG.png"} fill /> */}
@@ -61,7 +62,7 @@ export default function () {
           <p className={"text-right text-sm font-semibold md:text-base"}>
             Join our{" "}
             <span className={"text-[#5339D6] underline"}>
-              <Link href={"https://discord.gg/metapals"}>Discord</Link>
+              <Link href={URL_DISCORD}>Discord</Link>
             </span>{" "}
             for news and updates!
           </p>

@@ -4,10 +4,11 @@ import BottomBar from "../components/BottomBar"
 import Button from "../components/Button"
 import { FaXTwitter, FaDiscord, FaArrowLeft } from "react-icons/fa6"
 import Link from "next/link"
+import { URL_DISCORD, URL_TWITTER } from "../urls"
 
 export default function AxieForm() {
   return (
-    <div className="bg-mobile md:bg-form absolute inset-0 flex items-center overflow-y-scroll from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
+    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
       {/* back arrow */}
       <Link
         href={"/form"}
@@ -40,18 +41,18 @@ export default function AxieForm() {
                 hey@metapals.ai
               </a>
             </p>
-            <div>
-              <Button externalLink="https://discord.gg/metapals">
+            {/* <div>
+              <Button externalLink={URL_DISCORD}>
                 <p className="px-4 py-1">Find Out More</p>
               </Button>
-            </div>
+            </div> */}
 
             {/* socials */}
             <div className="hidden h-fit w-full flex-row justify-center gap-4 pt-6 md:flex">
-              <Link target="_blank" href={"https://discord.gg/metapals"}>
+              <Link target="_blank" href={URL_DISCORD}>
                 <FaDiscord size={24} />
               </Link>
-              <Link target="_blank" href={"https://x.com/MetaPals"}>
+              <Link target="_blank" href={URL_TWITTER}>
                 <FaXTwitter size={20} />
               </Link>
             </div>
@@ -60,10 +61,10 @@ export default function AxieForm() {
 
         {/* socials */}
         <div className="flex h-fit w-full flex-row justify-center gap-4 pt-6 md:hidden">
-          <Link target="_blank" href={"https://discord.gg/metapals"}>
+          <Link target="_blank" href={URL_DISCORD}>
             <FaDiscord size={24} />
           </Link>
-          <Link target="_blank" href={"https://x.com/MetaPals"}>
+          <Link target="_blank" href={URL_TWITTER}>
             <FaXTwitter size={20} />
           </Link>
         </div>
