@@ -10,7 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "axie": "url('/Axie_Main_BG3.jpg')"
+        "axie": "url('/Axie_Main_BG3.jpg')",
+        "bottom_bar": "url('/Axie_Bottom_BG.png')"
+
       },
       fontFamily: {
         uniform_rounded: "UniformRnd",

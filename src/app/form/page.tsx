@@ -286,17 +286,8 @@ export default function AxieForm() {
 
         {/* spacer */}
         <div className="block h-[15dvh] w-full"></div>
-
-        {/* sticky bottom bar for mobile */}
-        <div className="sticky bottom-0 w-screen md:hidden">
-          <BottomBar />
-        </div>
       </div>
-
-      {/* bottom bar for desktop */}
-      <div className="hidden md:block">
-        <BottomBar />
-      </div>
+      <BottomBar />
     </div>
   )
 }
