@@ -26,12 +26,12 @@ export default function AxieHome() {
           <p className="text-2xl font-bold">
             Meet your Axie Companion with MetaPals!
           </p>
-          <p className="pb-2 px-2 text-sm font-medium md:px-4">
+          <p className="px-2 pb-2 text-sm font-medium md:px-4">
             Sign up for a chance to be an early adopter of the Axie digital
             companion!
           </p>
-          <Button link="/form">
-            <p className="px-4 py-1 text-lg font-bold">Be an Early Adopter</p>
+          <Button theme="axie_purple" link="/form">
+            <p className="px-4 py-1 text-lg font-medium">Be an Early Adopter</p>
           </Button>
           <p className="pt-2 text-sm md:text-base">
             Don't have MetaPals extension?

@@ -249,7 +249,7 @@ export default function AxieForm() {
             </div>
 
             <div className="flex w-full flex-col justify-center pt-4 md:justify-start">
-              <Button onClick={() => handleSubmit()}>
+              <Button theme="axie_purple" onClick={() => handleSubmit()}>
                 <p className="px-6 py-1">Submit</p>
               </Button>
               <p className={`h-4 text-center text-red-400`}>
