@@ -11,7 +11,7 @@ import { useGSAP } from "@gsap/react"
 gsap.registerPlugin(useGSAP)
 
 export default function AxieHome() {
-  const axieRefs = useRef([])
+  const axieRefs = useRef<(HTMLImageElement | null)[]>([])
 
   useGSAP(() => {
     axieRefs.current.forEach((axie) => {
@@ -67,7 +67,9 @@ export default function AxieHome() {
           ].map((src, index) => (
             <Image
               key={index}
-              ref={(el) => (axieRefs.current[index] = el)}
+              ref={(el) => {
+                axieRefs.current[index] = el
+              }}
               alt=""
               height={300}
               width={300}
@@ -99,7 +101,7 @@ export default function AxieHome() {
   )
 }
 
-function getAxieStyles(index) {
+function getAxieStyles(index:number) {
   switch (index) {
     case 0:
       return "hidden md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
