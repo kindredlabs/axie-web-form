@@ -41,7 +41,11 @@ export default function AxieForm() {
                 hey@metapals.ai
               </a>
             </p>
+
             <div>
+              <p className="py-4 text-center font-semibold">
+                Curious to know more? Watch our trailer here!
+              </p>
               <Button theme={"axie_white"} externalLink={URL_YOUTUBE_METAPALS}>
                 <div className="flex flex-row items-center px-2">
                   <FaYoutube size={20} />
