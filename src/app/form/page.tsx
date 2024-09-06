@@ -4,7 +4,7 @@ import React from "react"
 import Image from "next/image"
 import BottomBar from "../components/BottomBar"
 import Button from "../components/Button"
-import { FaXTwitter, FaDiscord, FaArrowLeft } from "react-icons/fa6"
+import { FaXTwitter, FaDiscord, FaArrowLeftLong } from "react-icons/fa6"
 import Link from "next/link"
 import z from "zod"
 import { useState } from "react"
@@ -105,20 +105,19 @@ export default function AxieForm() {
 
   return (
     <div className="absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
-      {/* back arrow */}
-      <Link
-        href={"/"}
-        className="absolute left-5 top-5 z-10 cursor-pointer duration-500 hover:scale-110"
-      >
-        <FaArrowLeft className="size-8 md:size-12" />
-      </Link>
-
       {/* main content */}
-      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 md:h-full">
+      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[20dvh] md:h-full">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
           <div className="flex flex-col px-4 text-center md:w-1/2 md:px-10 md:text-left">
-            <h1 className="pb-8 pt-16 text-4xl font-bold">
+            {/* back arrow */}
+            <Link
+              href={"/"}
+              className="z-10 cursor-pointer duration-500 hover:scale-110"
+            >
+              <FaArrowLeftLong className="size-8 md:size-12" />
+            </Link>
+            <h1 className="pb-8 pt-10 text-4xl font-bold">
               Get Early Access of Our Axie Companions!
             </h1>
             <p>
@@ -144,8 +143,6 @@ export default function AxieForm() {
           </div>
 
           <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10 md:w-1/2">
-            <p className="text-xl font-bold">Form Submission</p>
-
             <div className="flex flex-col gap-4 md:flex-row">
               <div className="flex flex-col md:w-1/2">
                 {/* Name Field */}
@@ -251,7 +248,7 @@ export default function AxieForm() {
 
             <div className="flex w-full flex-col justify-center pt-4 md:w-fit md:justify-start">
               <Button theme="axie_purple" onClick={() => handleSubmit()}>
-                <p className="px-6 py-1">Submit</p>
+                <p className="px-6 py-1 font-bold">Submit</p>
               </Button>
               <p className={`h-4 text-center text-red-400`}>
                 {errors.server && "Error! " + errors.server}
@@ -270,8 +267,8 @@ export default function AxieForm() {
             <FaXTwitter size={20} />
           </Link>
         </div>
-        {/* spacer */}
-        <div className="block h-[18dvh] w-full"></div>
+        {/* spacer
+        <div className="block h-[18dvh] w-full"></div> */}
       </div>
       <BottomBar />
     </div>

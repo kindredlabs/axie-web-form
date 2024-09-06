@@ -7,7 +7,14 @@ interface IButton {
   disabled?: boolean
   link?: string
   externalLink?: string
-  theme?: "blue" | "white" | "orange" | "gray" | "green" | "axie_purple" | "axie_white"
+  theme?:
+    | "blue"
+    | "white"
+    | "orange"
+    | "gray"
+    | "green"
+    | "axie_purple"
+    | "axie_white"
 }
 
 const colorSchemes = {
@@ -79,18 +86,18 @@ const MTPButton = forwardRef<HTMLButtonElement, IButton>((props, ref) => {
   return (
     <button
       type={"button"}
-      className={`${colorSchemes[props.theme!]} group relative rounded-2xl border-[6px] font-uniform_rounded duration-300 hover:scale-105 hover:drop-shadow-xl disabled:pointer-events-none disabled:border-[#cccccc] disabled:bg-[#fcf9f9] disabled:text-gray-400 lg:rounded-3xl lg:border-[9px]`}
+      className={`${colorSchemes[props.theme!]} group relative rounded-2xl border-[2px] p-1 duration-300 hover:border-[#afb3ff] hover:px-5 hover:drop-shadow-xl disabled:pointer-events-none disabled:border-[#cccccc] disabled:bg-[#fcf9f9] disabled:text-gray-400 lg:rounded-3xl lg:border-[4px]`}
       ref={ref}
       {...props}
     >
       {props.children}
 
       {/*shine*/}
-      <div
+      {/* <div
         className={
           "absolute left-[2%] top-[10%] aspect-[3/2] w-[7%] -rotate-[45deg] rounded-[50%] bg-white opacity-40"
         }
-      />
+      /> */}
     </button>
   )
 })
