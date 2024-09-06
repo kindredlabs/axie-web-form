@@ -13,11 +13,11 @@ import { URL_DISCORD, URL_TWITTER, URL_YOUTUBE_METAPALS } from "../urls"
 
 export default function AxieForm() {
   return (
-    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
+    <div className="md:bg-main absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
       {/* back arrow */}
       <Link
         href={"/form"}
-        className="absolute left-[10dvw] top-[10dvh] z-10 cursor-pointer duration-500 hover:scale-110"
+        className="absolute left-5 top-5 z-10 cursor-pointer duration-500 hover:scale-110 md:left-[10dvw] md:top-[10dvh]"
       >
         <FaArrowLeftLong className="size-8 md:size-12" />
       </Link>
@@ -81,7 +81,7 @@ export default function AxieForm() {
           </Link>
         </div>
       </div>
-      <BottomBar />
+      {/* <BottomBar /> */}
     </div>
   )
 }
