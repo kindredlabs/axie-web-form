@@ -81,7 +81,7 @@ export default function AxieForm() {
           </Link>
         </div>
       </div>
-      <BottomBar />
+      {/* <BottomBar /> */}
     </div>
   )
 }

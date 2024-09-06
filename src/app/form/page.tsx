@@ -270,7 +270,7 @@ export default function AxieForm() {
         {/* spacer
         <div className="block h-[18dvh] w-full"></div> */}
       </div>
-      <BottomBar />
+      {/* <BottomBar /> */}
     </div>
   )
 }

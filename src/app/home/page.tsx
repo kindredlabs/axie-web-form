@@ -94,7 +94,7 @@ export default function AxieHome() {
           </Link>
         </div>
       </div>
-      <BottomBar />
+      {/* <BottomBar /> */}
     </div>
   )
 }
