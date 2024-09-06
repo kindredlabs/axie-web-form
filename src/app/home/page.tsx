@@ -1,14 +1,46 @@
 "use client"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import Image from "next/image"
 import Button from "../components/Button"
 import BottomBar from "../components/BottomBar"
 import Link from "next/link"
 import { URL_EXTENSION_STORE } from "../urls"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+
+gsap.registerPlugin(useGSAP)
 
 export default function AxieHome() {
+  const axieRefs = useRef([])
+
+  useGSAP(() => {
+    axieRefs.current.forEach((axie) => {
+      if (!axie) return
+      gsap.from(axie, {
+        duration: getRandomNumber(1, 5),
+        y: -1000,
+        ease: getRandomChoice([
+          "elastic.out(0.5, 0.3)",
+          "circle",
+          "back",
+          "power1",
+          "power4",
+        ]),
+      })
+    })
+  }, [])
+
+  function getRandomNumber(start: number, end: number): number {
+    return Math.floor(Math.random() * (start - end + 1)) + end
+  }
+
+  function getRandomChoice<T>(choices: T[]): T {
+    const randomIndex = Math.floor(Math.random() * choices.length)
+    return choices[randomIndex]
+  }
+
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-axie">
+    <div className="md:bg-main_plain absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat">
       {/* main content */}
       <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh]">
         {/* axie logo */}
@@ -24,62 +56,26 @@ export default function AxieHome() {
         {/* buttons */}
         <div className="relative flex aspect-video w-80 flex-col items-center gap-2 rounded-xl border-4 border-white bg-white/75 p-2 text-center text-sm text-[#333] md:w-[30rem] md:p-6 md:text-base">
           {/* Axie beasts */}
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute -left-[8rem] top-[12rem] w-56"
-            src={"/Axie_1.webp"}
-            draggable={false}
-          />
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute left-[27rem] top-[9rem] w-36"
-            src={"/Axie_2.webp"}
-            draggable={false}
-          />
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute left-[35rem] top-[20rem] w-24"
-            src={"/Axie_3.webp"}
-            draggable={false}
-          />
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute -top-[2rem] left-[32rem] w-28"
-            src={"/Axie_4.webp"}
-            draggable={false}
-          />
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute left-[16rem] top-[23rem] w-32"
-            src={"/Axie_5.webp"}
-            draggable={false}
-          />
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute -left-[13rem] top-[5rem] w-32"
-            src={"/Axie_6.webp"}
-            draggable={false}
-          />
-          <Image
-            alt=""
-            height={300}
-            width={300}
-            className="absolute -left-[8rem] -top-[10rem] w-48"
-            src={"/Axie_7.webp"}
-            draggable={false}
-          />
+          {[
+            "Axie_1.webp",
+            "Axie_2.webp",
+            "Axie_3.webp",
+            "Axie_4.webp",
+            "Axie_5.webp",
+            "Axie_6.webp",
+            "Axie_7.webp",
+          ].map((src, index) => (
+            <Image
+              key={index}
+              ref={(el) => (axieRefs.current[index] = el)}
+              alt=""
+              height={300}
+              width={300}
+              className={`absolute ${getAxieStyles(index)}`}
+              src={`/${src}`}
+              draggable={false}
+            />
+          ))}
           <p className="text-2xl font-bold text-[#10102B]">
             Meet your Axie Companion with MetaPals!
           </p>
@@ -101,4 +97,25 @@ export default function AxieHome() {
       <BottomBar />
     </div>
   )
+}
+
+function getAxieStyles(index) {
+  switch (index) {
+    case 0:
+      return "hidden md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
+    case 1:
+      return "hidden md:flex md:left-[27rem] md:top-[9rem] md:w-36"
+    case 2:
+      return "hidden md:flex md:left-[35rem] md:top-[20rem] md:w-24"
+    case 3:
+      return "hidden md:flex md:-top-[2rem] md:left-[32rem] md:w-28"
+    case 4:
+      return "hidden md:flex md:left-[16rem] md:top-[23rem] md:w-32"
+    case 5:
+      return "hidden md:flex md:-left-[13rem] md:top-[5rem] md:w-32"
+    case 6:
+      return "hidden md:flex md:-left-[8rem] md:-top-[10rem] md:w-48"
+    default:
+      return ""
+  }
 }

@@ -13,7 +13,7 @@ import { URL_DISCORD, URL_TWITTER, URL_YOUTUBE_METAPALS } from "../urls"
 
 export default function AxieForm() {
   return (
-    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
+    <div className="md:bg-main absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
       {/* back arrow */}
       <Link
         href={"/form"}

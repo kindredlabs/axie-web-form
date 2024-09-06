@@ -104,7 +104,7 @@ export default function AxieForm() {
   }
 
   return (
-    <div className="absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-form">
+    <div className="md:bg-main absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
       {/* main content */}
       <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[20dvh] md:h-full">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">

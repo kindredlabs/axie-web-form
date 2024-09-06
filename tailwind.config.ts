@@ -10,9 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        axie: "url('/Axie_Main_BG.webp')",
-        // form: "url('/Axie_Form_BG.webp')",
+        main_plain: "url('/Axie_Main_Plain_BG.webp')",
+        main: "url('/Axie_Main_BG.webp')",
         mobile: "url('/Axie_Mobile_BG.webp')",
+        mobile_plain: "url('/Axie_Mobile_Plain_BG.webp')",
         bottom_bar: "url('/Axie_Bottom_BG.webp')",
       },
       fontFamily: {
