@@ -16,11 +16,11 @@ export default function () {
       {/* <Image src={"/Axie_Bottom_BG.png"} fill /> */}
       <span
         className={
-          "flex h-full flex-col items-center justify-between gap-2 px-5 py-3 md:flex-row md:gap-5 md:py-1 lg:gap-0 lg:py-3"
+          "flex h-full flex-col items-center justify-between gap-2 px-5 py-3 md:flex-row md:gap-0 md:py-1 lg:py-3"
         }
       >
         {/* left / highest part */}
-        <div className="hidden size-24 items-end gap-4 md:flex md:w-1/3">
+        <div className="hidden size-24 items-end gap-4 pb-2 md:flex md:w-1/3">
           <p className="font-medium italic text-black">Powered by</p>
           <Image
             width={80}
@@ -121,7 +121,7 @@ function Countdown() {
   }
 
   return (
-    <div className="rounded-md bg-gradient-to-r from-[#24E5FF]/15 via-[#9E6CE0]/15 to-[#F988FF]/15 px-2 py-3">
+    <div className="w-full rounded-md bg-gradient-to-r from-[#24E5FF]/15 via-[#9E6CE0]/15 to-[#F988FF]/15 py-3 text-center 2xl:w-fit 2xl:px-8">
       <div
         className={
           "bg-gradient-to-r from-[#24E5FF] via-[#9E6CE0] to-[#F988FF] bg-clip-text text-lg font-bold leading-none tracking-wide text-transparent lg:text-4xl"
