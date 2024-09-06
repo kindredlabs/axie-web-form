@@ -2,9 +2,9 @@ import React from "react"
 import Image from "next/image"
 import BottomBar from "../components/BottomBar"
 import Button from "../components/Button"
-import { FaXTwitter, FaDiscord, FaArrowLeft } from "react-icons/fa6"
+import { FaXTwitter, FaDiscord, FaArrowLeft, FaYoutube } from "react-icons/fa6"
 import Link from "next/link"
-import { URL_DISCORD, URL_TWITTER } from "../urls"
+import { URL_DISCORD, URL_TWITTER, URL_YOUTUBE_METAPALS } from "../urls"
 
 export default function AxieForm() {
   return (
@@ -41,11 +41,14 @@ export default function AxieForm() {
                 hey@metapals.ai
               </a>
             </p>
-            {/* <div>
-              <Button externalLink={URL_DISCORD}>
-                <p className="px-4 py-1">Find Out More</p>
+            <div>
+              <Button theme={"axie_white"} externalLink={URL_YOUTUBE_METAPALS}>
+                <div className="flex flex-row items-center px-2">
+                  <FaYoutube size={20} />
+                  <p className="px-2 py-1">Watch Trailer</p>
+                </div>
               </Button>
-            </div> */}
+            </div>
 
             {/* socials */}
             <div className="hidden h-fit w-full flex-row justify-center gap-4 pt-6 md:flex">
