@@ -113,7 +113,7 @@ export default function AxieForm() {
             {/* back arrow */}
             <Link
               href={"/"}
-              className="z-10 cursor-pointer duration-500 hover:scale-110"
+              className="absolute left-5 top-5 z-10 cursor-pointer duration-500 hover:scale-110 md:relative md:left-0 md:top-0"
             >
               <FaArrowLeftLong className="size-8 md:size-12" />
             </Link>

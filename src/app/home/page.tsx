@@ -104,19 +104,19 @@ export default function AxieHome() {
 function getAxieStyles(index:number) {
   switch (index) {
     case 0:
-      return "hidden md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
+      return "z-10 hidden md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
     case 1:
-      return "hidden md:flex md:left-[27rem] md:top-[9rem] md:w-36"
+      return "z-10 hidden md:flex md:left-[27rem] md:top-[9rem] md:w-36"
     case 2:
-      return "hidden md:flex md:left-[35rem] md:top-[20rem] md:w-24"
+      return "z-10 hidden md:flex md:left-[35rem] md:top-[20rem] md:w-24"
     case 3:
-      return "hidden md:flex md:-top-[2rem] md:left-[32rem] md:w-28"
+      return "z-10 hidden md:flex md:-top-[2rem] md:left-[32rem] md:w-28"
     case 4:
-      return "hidden md:flex md:left-[16rem] md:top-[23rem] md:w-32"
+      return "z-10 hidden md:flex md:left-[16rem] md:top-[23rem] md:w-32"
     case 5:
-      return "hidden md:flex md:-left-[13rem] md:top-[5rem] md:w-32"
+      return "z-10 hidden md:flex md:-left-[13rem] md:top-[5rem] md:w-32"
     case 6:
-      return "hidden md:flex md:-left-[8rem] md:-top-[10rem] md:w-48"
+      return "z-10 hidden md:flex md:-left-[8rem] md:-top-[10rem] md:w-48"
     default:
       return ""
   }
