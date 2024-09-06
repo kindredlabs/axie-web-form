@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         axie: "url('/Axie_Main_BG.webp')",
-        form: "url('/Axie_Form_BG.webp')",
+        // form: "url('/Axie_Form_BG.webp')",
         mobile: "url('/Axie_Mobile_BG.webp')",
         bottom_bar: "url('/Axie_Bottom_BG.webp')",
       },
