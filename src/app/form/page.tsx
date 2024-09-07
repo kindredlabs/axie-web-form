@@ -16,6 +16,7 @@ interface inputChangeType {
   target: { name: string; value: string }
 }
 
+// definition of validation requirement
 const formSchema = z.object({
   name: z
     .string()
@@ -48,10 +49,12 @@ export default function AxieForm() {
     server: "",
   })
 
+  // update state with user input
   const handleInputChange = (event: inputChangeType) => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
+  // send data to POST request
   const handleSubmit = async () => {
     setErrors({
       name: "",
@@ -141,6 +144,7 @@ export default function AxieForm() {
             </div>
           </div>
 
+          {/* form submission */}
           <form className="flex h-fit w-full flex-col gap-6 rounded-xl bg-white p-6 text-black md:mt-10 md:w-1/2">
             <div className="flex flex-col gap-4 md:flex-row">
               <div className="flex flex-col md:w-1/2">
@@ -245,6 +249,7 @@ export default function AxieForm() {
               </div>
             </div>
 
+            {/* submit button */}
             <div className="flex w-full flex-col justify-center pt-4 md:w-fit md:justify-start">
               <Button theme="axie_purple" onClick={() => handleSubmit()}>
                 <p className="px-6 py-1 font-bold">Submit</p>
@@ -266,8 +271,6 @@ export default function AxieForm() {
             <FaXTwitter size={20} />
           </Link>
         </div>
-        {/* spacer
-        <div className="block h-[18dvh] w-full"></div> */}
       </div>
       {/* <BottomBar /> */}
     </div>
