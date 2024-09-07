@@ -7,16 +7,18 @@ import Link from "next/link"
 import { URL_EXTENSION_STORE } from "../urls"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { URL_DISCORD, URL_TWITTER } from "../urls"
+import { FaXTwitter, FaDiscord, FaArrowLeftLong } from "react-icons/fa6"
 
 gsap.registerPlugin(useGSAP)
 
 export default function AxieHome() {
   const axieRefs = useRef<(HTMLImageElement | null)[]>([])
-
   useGSAP(() => {
     axieRefs.current.forEach((axie) => {
       if (!axie) return
       gsap.from(axie, {
+        //initial animation
         duration: getRandomNumber(1, 5),
         y: -1000,
         ease: getRandomChoice([
@@ -26,6 +28,16 @@ export default function AxieHome() {
           "power1",
           "power4",
         ]),
+        onComplete: () => {
+          // Idle animation for subtle up and down movement
+          gsap.to(axie, {
+            y: `+=${getRandomNumber(10, 50)}`,
+            duration: getRandomNumber(1, 3),
+            yoyo: true,
+            repeat: -1,
+            ease: "sine.inOut",
+          })
+        },
       })
     })
   }, [])
@@ -40,9 +52,9 @@ export default function AxieHome() {
   }
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-main_plain">
+    <div className="absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile_plain from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-main_plain">
       {/* main content */}
-      <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh]">
+      <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh] md:pb-[5dvh]">
         {/* axie logo */}
         <Image
           alt=""
@@ -96,16 +108,29 @@ export default function AxieHome() {
             </p>
           </Link> */}
         </div>
-        <div className="flex w-full items-end justify-center gap-4 pt-10">
-          <p className="font-medium italic text-white">Powered by</p>
-          <Image
-            width={80}
-            height={80}
-            alt={""}
-            src={"/Axie_Pal_Logo.svg"}
-            color="white"
-            draggable={false}
-          />
+        <div className="flex w-full flex-col items-center justify-center">
+          <div className="flex items-end justify-center gap-4 pt-10">
+            {/* pal branding */}
+            <p className="font-medium italic text-white">Powered by</p>
+            <Image
+              width={80}
+              height={80}
+              alt={""}
+              src={"/Axie_Pal_Logo.svg"}
+              color="white"
+              draggable={false}
+            />
+          </div>
+
+          {/* socials */}
+          <div className="flex flex-row gap-4 pt-6 md:flex">
+            <Link target="_blank" href={URL_DISCORD}>
+              <FaDiscord size={24} />
+            </Link>
+            <Link target="_blank" href={URL_TWITTER}>
+              <FaXTwitter size={20} />
+            </Link>
+          </div>
         </div>
       </div>
       {/* <BottomBar /> */}
@@ -116,19 +141,19 @@ export default function AxieHome() {
 function getAxieStyles(index: number) {
   switch (index) {
     case 0:
-      return "z-10 hidden md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
+      return "z-10 z-0 -left-[2rem] top-[16rem] w-[9rem] md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
     case 1:
-      return "z-10 hidden md:flex md:left-[27rem] md:top-[9rem] md:w-36"
+      return "z-10 z-0 left-[13rem] top-[22rem] w-[6rem] md:flex md:left-[27rem] md:top-[9rem] md:w-36"
     case 2:
-      return "z-10 hidden md:flex md:left-[35rem] md:top-[20rem] md:w-24"
+      return "z-10 z-0 left-[20rem] top-[16rem] w-[3rem] md:flex md:left-[35rem] md:top-[20rem] md:w-24"
     case 3:
-      return "z-10 hidden md:flex md:-top-[2rem] md:left-[32rem] md:w-28"
+      return "z-10 z-0 left-[7rem] top-[28rem] w-[5rem] md:flex md:-top-[2rem] md:left-[32rem] md:w-28"
     case 4:
-      return "z-10 hidden md:flex md:left-[16rem] md:top-[23rem] md:w-32"
+      return "z-10 z-0 hidden md:flex md:left-[16rem] md:top-[23rem] md:w-32"
     case 5:
-      return "z-10 hidden md:flex md:-left-[13rem] md:top-[5rem] md:w-32"
+      return "z-10 z-0 left-[18rem] top-[28rem] w-[4rem] md:flex md:-left-[13rem] md:top-[5rem] md:w-32"
     case 6:
-      return "z-10 hidden md:flex md:-left-[8rem] md:-top-[10rem] md:w-48"
+      return "z-10 z-0 -left-[5rem] top-[24rem] w-[9rem] md:flex md:-left-[8rem] md:-top-[11rem] md:w-48"
     default:
       return ""
   }
