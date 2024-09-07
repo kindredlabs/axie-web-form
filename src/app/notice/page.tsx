@@ -13,7 +13,7 @@ import { URL_DISCORD, URL_TWITTER, URL_YOUTUBE_METAPALS } from "../urls"
 
 export default function AxieForm() {
   return (
-    <div className="md:bg-main absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip">
+    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-main">
       {/* back arrow */}
       <Link
         href={"/form"}
@@ -23,18 +23,19 @@ export default function AxieForm() {
       </Link>
 
       {/* main content */}
-      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[20dvh] md:h-full">
+      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[10dvh] md:h-full">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
           <div className="flex flex-col text-center md:w-[32rem]">
             <h1 className="px-4 py-8 text-4xl font-bold md:px-0">
-              Thank You For Signing Up
+              Thank you for signing Up
             </h1>
             <p>You're almost there!</p>
             <br />
             <p>
-              Due to high demand, only a few will be selected. We will email the
-              chosen ones soon, so keep an eye on your inbox!
+              Due to limited slots, only a few creators and community members
+              will be selected in this round. We will email the chosen ones
+              soon, so keep an eye on your inbox!
             </p>
             <br />
             <p className="pb-8">

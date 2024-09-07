@@ -40,7 +40,7 @@ export default function AxieHome() {
   }
 
   return (
-    <div className="md:bg-main_plain absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat">
+    <div className="absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-main_plain">
       {/* main content */}
       <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh]">
         {/* axie logo */}
@@ -54,7 +54,7 @@ export default function AxieHome() {
         />
 
         {/* buttons */}
-        <div className="relative flex aspect-video w-80 flex-col items-center gap-2 rounded-xl border-4 border-white bg-white/75 p-2 text-center text-sm text-[#333] md:w-[30rem] md:p-6 md:text-base">
+        <div className="relative flex aspect-video w-80 flex-col items-center gap-2 rounded-xl border-4 border-white bg-white/75 p-6 text-center text-sm text-[#333] md:w-[30rem] md:p-10 md:text-base">
           {/* Axie beasts */}
           {[
             "Axie_1.webp",
@@ -79,21 +79,33 @@ export default function AxieHome() {
             />
           ))}
           <p className="text-2xl font-bold text-[#10102B]">
-            Meet your Axie Companion with MetaPals!
+            Bring your Axie to life with Axie Pals!
           </p>
-          <p className="px-2 pb-2 font-medium md:px-4">
-            Sign up for a chance to be an early adopter of the Axie digital
-            companion!
+          <p className="pb-2 font-medium md:px-4">
+            Feed, pet, and raise Axie Pals from your browser!
           </p>
           <Button theme="axie_purple" link="/form">
-            <p className="px-4 py-1 text-lg font-medium">Be an Early Adopter</p>
+            <p className="px-4 py-1 text-lg font-medium">
+              Sign up for early access
+            </p>
           </Button>
-          <p className="pt-2">Don't have MetaPals extension?</p>
+          {/* <p className="pt-2">Don't have MetaPals extension?</p>
           <Link href={URL_EXTENSION_STORE}>
             <p className="font-extrabold text-[#5339D6] underline">
               Download here
             </p>
-          </Link>
+          </Link> */}
+        </div>
+        <div className="flex w-full items-end justify-center gap-4 pt-10">
+          <p className="font-medium italic text-white">Powered by</p>
+          <Image
+            width={80}
+            height={80}
+            alt={""}
+            src={"/Axie_Pal_Logo.svg"}
+            color="white"
+            draggable={false}
+          />
         </div>
       </div>
       {/* <BottomBar /> */}
@@ -101,7 +113,7 @@ export default function AxieHome() {
   )
 }
 
-function getAxieStyles(index:number) {
+function getAxieStyles(index: number) {
   switch (index) {
     case 0:
       return "z-10 hidden md:flex md:-left-[8rem] md:top-[12rem] md:w-56"
