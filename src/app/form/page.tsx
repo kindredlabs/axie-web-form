@@ -11,6 +11,7 @@ import { useState } from "react"
 import { AxieSendForm } from "../components/api/AxieSendForm"
 import { useRouter } from "next/navigation"
 import { URL_DISCORD, URL_TWITTER } from "../urls"
+import { serverHooks } from "next/dist/server/app-render/entry-base"
 
 interface inputChangeType {
   target: { name: string; value: string }
@@ -103,6 +104,7 @@ export default function AxieForm() {
           }
         })
       }
+      setErrors({ server: "Something went wrong, please try again later" })
     }
   }
 
