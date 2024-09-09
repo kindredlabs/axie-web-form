@@ -1,5 +1,7 @@
+const URL_API = process.env.NEXT_PUBLIC_API_ENDPOINT
+
 export const URL_AXIE_FORM =
-  "https://dev.api.metapals.ai/api/v1/sanctuary/axie-early-access"
+  URL_API + "/api/v1/sanctuary/axie-early-access"
 
 export const URL_DISCORD = "https://discord.gg/Am7ZmeZW"
 export const URL_TWITTER = "https://twitter.com/MetaPals"
