@@ -113,7 +113,7 @@ export default function AxieForm() {
   return (
     <div className="absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-main">
       {/* main content */}
-      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[5dvh] md:h-full">
+      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 md:h-full md:pb-[5dvh]">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
           <div className="flex flex-col px-4 text-center md:w-1/2 md:px-10 md:text-left">
@@ -267,7 +267,7 @@ export default function AxieForm() {
         </div>
 
         {/* socials */}
-        <div className="flex h-fit w-full flex-row justify-center gap-4 pt-6 md:hidden">
+        <div className="flex h-fit w-full flex-row justify-center gap-4 pb-[5dvh] pt-6 md:hidden md:pb-0">
           <Link target="_blank" href={URL_DISCORD}>
             <FaDiscord size={24} />
           </Link>
