@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId="G-0816HPCT1J" />
+      <GoogleAnalytics gaId="G-9RYXF9GYW3" />
       <body className={pj_sans.className}>{children}</body>
     </html>
   )
