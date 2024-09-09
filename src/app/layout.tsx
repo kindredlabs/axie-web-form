@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Plus_Jakarta_Sans } from "next/font/google"
 import "./globals.css"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 const pj_sans = Plus_Jakarta_Sans({ subsets: ["latin"] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-0816HPCT1J" />
       <body className={pj_sans.className}>{children}</body>
     </html>
   )
