@@ -16,6 +16,8 @@ export async function AxieSendForm({
   xUsername,
   discordUsername,
 }: axieFormInterface) {
+  console.log("AXIE", process.env)
+  console.log("AXIE_URL", URL_AXIE_FORM)
   try {
     const res = await fetch(URL_AXIE_FORM, {
       method: "POST",
