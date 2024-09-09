@@ -23,7 +23,7 @@ export default function AxieForm() {
       </Link>
 
       {/* main content */}
-      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[10dvh] md:h-full">
+      <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[5dvh] md:h-full md:pb-[10dvh]">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
           <div className="flex flex-col text-center md:w-[32rem]">

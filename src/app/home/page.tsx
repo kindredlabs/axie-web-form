@@ -54,19 +54,18 @@ export default function AxieHome() {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile_plain from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-main_plain">
       {/* main content */}
-      <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh] md:pb-[5dvh]">
+      <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[10dvh] md:pb-[5dvh]">
         {/* axie logo */}
         <Image
           alt=""
           height={300}
           width={300}
-          className="md:w-90 w-64 pb-10"
+          className="md:w-90 animate-fadeIn w-52 pb-10"
           src={"/Axie_Logo.webp"}
           draggable={false}
         />
-
         {/* buttons */}
-        <div className="relative flex aspect-video w-80 flex-col items-center gap-2 rounded-xl border-4 border-white bg-white/75 p-6 text-center text-sm text-[#333] md:w-[30rem] md:p-10 md:text-base">
+        <div className="relative flex aspect-video w-80 flex-col items-center rounded-xl border-4 border-white bg-white/75 p-6 text-center text-sm text-[#333] md:w-[30rem] md:p-10 md:text-base">
           {/* Axie beasts */}
           {[
             "Axie_1.webp",
@@ -90,17 +89,20 @@ export default function AxieHome() {
               draggable={false}
             />
           ))}
-          <p className="text-2xl font-bold text-[#10102B]">
-            Bring your Axie to life with Axie Pals!
-          </p>
-          <p className="pb-2 font-medium md:px-4">
-            Feed, pet, and raise Axie Pals from your browser!
-          </p>
-          <Button theme="axie_purple" link="/form">
-            <p className="px-4 py-1 text-lg font-medium">
-              Sign up for early access
+          <div className="animate-fadeIn flex flex-col gap-2">
+            <p className="text-2xl font-bold text-[#10102B]">
+              Bring your Axie to life with Axie Pals!
             </p>
-          </Button>
+            <p className="pb-2 font-medium md:px-4">
+              Feed, pet, and raise Axie Pals from your browser!
+            </p>
+            <Button theme="axie_purple" link="/form">
+              <p className="px-4 py-1 text-lg font-medium">
+                Sign up for early access
+              </p>
+            </Button>
+          </div>
+
           {/* <p className="pt-2">Don't have MetaPals extension?</p>
           <Link href={URL_EXTENSION_STORE}>
             <p className="font-extrabold text-[#5339D6] underline">
@@ -108,7 +110,7 @@ export default function AxieHome() {
             </p>
           </Link> */}
         </div>
-        <div className="flex w-full flex-col items-center justify-center">
+        <div className="animate-fadeIn flex w-full flex-col items-center justify-center">
           <div className="flex items-end justify-center gap-4 pt-10">
             {/* pal branding */}
             <p className="font-medium italic text-white">Powered by</p>
