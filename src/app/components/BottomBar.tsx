@@ -62,7 +62,7 @@ export default function () {
           <p className={"text-right text-sm font-semibold md:text-base"}>
             Join our{" "}
             <span className={"text-[#5339D6] underline"}>
-              <Link href={URL_DISCORD}>Discord</Link>
+              {/* <Link href={URL_DISCORD}>Discord</Link> */}
             </span>{" "}
             for news and updates!
           </p>
