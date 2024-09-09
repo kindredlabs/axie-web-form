@@ -14,6 +14,7 @@ gsap.registerPlugin(useGSAP)
 
 export default function AxieHome() {
   const axieRefs = useRef<(HTMLImageElement | null)[]>([])
+  const mainContentRefs = useRef()
   useGSAP(() => {
     axieRefs.current.forEach((axie) => {
       if (!axie) return
@@ -40,6 +41,11 @@ export default function AxieHome() {
         },
       })
     })
+
+    gsap.from(mainContentRefs.current, {
+      duration: 3,
+      opacity: 0,
+    })
   }, [])
 
   function getRandomNumber(start: number, end: number): number {
@@ -54,7 +60,11 @@ export default function AxieHome() {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-y-hidden bg-mobile_plain from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:bg-main_plain">
       {/* main content */}
-      <div className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh] md:pb-[5dvh]">
+
+      <div
+        ref={mainContentRefs}
+        className="absolute flex w-full flex-col items-center justify-center self-center pb-[20dvh] md:pb-[5dvh]"
+      >
         {/* axie logo */}
         <Image
           alt=""
@@ -63,6 +73,7 @@ export default function AxieHome() {
           className="md:w-90 w-64 pb-10"
           src={"/Axie_Logo.webp"}
           draggable={false}
+          // ref={mainContentRefs}
         />
 
         {/* buttons */}
