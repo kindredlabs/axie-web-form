@@ -103,6 +103,10 @@ export default function AxieForm() {
           }
         })
       }
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        server: "Something went wrong, please try again",
+      }))
     }
   }
 
