@@ -13,7 +13,7 @@ import { URL_DISCORD, URL_TWITTER, URL_YOUTUBE_METAPALS } from "../urls"
 
 export default function AxieForm() {
   return (
-    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-main">
+    <div className="absolute inset-0 flex items-center overflow-y-scroll bg-mobile_plain from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-main_plain">
       {/* back arrow */}
       <Link
         href={"/form"}
@@ -24,7 +24,14 @@ export default function AxieForm() {
 
       {/* main content */}
       <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 pb-[5dvh] md:h-full md:pb-[10dvh]">
-        <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
+        <div className="relative flex flex-col gap-10 self-center md:flex-row md:p-12">
+          <Image
+            alt="axie tripp"
+            width={500}
+            height={500}
+            src={"/Axie_Tripp.webp"}
+            className="absolute -bottom-80 size-64 md:-bottom-24 md:left-0 2xl:-bottom-40 2xl:-left-40 2xl:size-96"
+          />
           {/* main title */}
           <div className="flex flex-col text-center md:w-[32rem]">
             <h1 className="px-4 py-8 text-4xl font-bold md:px-0">
@@ -53,7 +60,7 @@ export default function AxieForm() {
                 Curious to know more? Watch our trailer here!
               </p>
               <Button theme={"axie_white"} externalLink={URL_YOUTUBE_METAPALS}>
-                <div className="flex flex-row items-center px-2">
+                <div className="flex flex-row items-center px-20 md:px-2">
                   <FaYoutube size={20} />
                   <p className="px-2 py-1 font-bold">Watch Trailer</p>
                 </div>

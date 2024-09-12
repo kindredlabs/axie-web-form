@@ -111,13 +111,20 @@ export default function AxieForm() {
   }
 
   return (
-    <div className="absolute inset-0 flex overflow-y-scroll bg-mobile from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-main">
+    <div className="absolute inset-0 flex overflow-y-scroll bg-mobile_plain from-[#4bd4fe] to-[#80d458] bg-cover bg-center bg-no-repeat md:overflow-clip md:bg-main_plain">
       {/* main content */}
       <div className="relative flex h-fit w-full flex-col items-center justify-center px-10 md:h-full md:pb-[5dvh]">
         <div className="flex flex-col gap-10 self-center md:flex-row md:p-12">
           {/* main title */}
-          <div className="flex flex-col px-4 text-center md:w-1/2 md:px-10 md:text-left">
+          <div className="relative flex flex-col px-4 text-center md:w-1/2 md:px-10 md:text-left">
             {/* back arrow */}
+            <Image
+              alt="axie tripp"
+              width={500}
+              height={500}
+              src={"/Axie_Tripp.webp"}
+              className="absolute -bottom-40 left-40 hidden size-64 md:block 2xl:-bottom-64 2xl:left-40 2xl:size-96"
+            />
             <Link
               href={"/"}
               className="absolute left-5 top-5 z-10 cursor-pointer duration-500 hover:scale-110 md:relative md:left-0 md:top-0"
@@ -267,13 +274,22 @@ export default function AxieForm() {
         </div>
 
         {/* socials */}
-        <div className="flex h-fit w-full flex-row justify-center gap-4 pb-[5dvh] pt-6 md:hidden md:pb-0">
-          <Link target="_blank" href={URL_DISCORD}>
-            <FaDiscord size={24} />
-          </Link>
-          <Link target="_blank" href={URL_TWITTER}>
-            <FaXTwitter size={20} />
-          </Link>
+        <div className="flex h-fit w-full flex-col items-center">
+          <div className="flex h-fit w-full flex-row justify-center gap-4 py-10 md:hidden md:pb-0">
+            <Link target="_blank" href={URL_DISCORD}>
+              <FaDiscord size={24} />
+            </Link>
+            <Link target="_blank" href={URL_TWITTER}>
+              <FaXTwitter size={20} />
+            </Link>
+          </div>
+          <Image
+            alt="axie tripp"
+            width={500}
+            height={500}
+            src={"/Axie_Tripp.webp"}
+            className="block size-64 md:hidden"
+          />
         </div>
       </div>
       {/* <BottomBar /> */}
