@@ -123,7 +123,7 @@ export default function AxieForm() {
               width={500}
               height={500}
               src={"/Axie_Tripp.webp"}
-              className="absolute -bottom-40 left-40 hidden size-64 md:block 2xl:-bottom-64 2xl:left-40 2xl:size-96"
+              className="absolute -bottom-40 left-40 hidden size-64 object-contain -scale-x-100 md:block 2xl:-bottom-64 2xl:left-40 2xl:size-96"
             />
             <Link
               href={"/"}
@@ -288,7 +288,7 @@ export default function AxieForm() {
             width={500}
             height={500}
             src={"/Axie_Tripp.webp"}
-            className="block size-64 md:hidden"
+            className="block size-64 object-contain -scale-x-100 md:hidden"
           />
         </div>
       </div>

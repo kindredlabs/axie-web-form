@@ -30,7 +30,7 @@ export default function AxieForm() {
             width={500}
             height={500}
             src={"/Axie_Tripp.webp"}
-            className="absolute -bottom-80 size-64 md:-bottom-24 md:left-0 2xl:-bottom-40 2xl:-left-40 2xl:size-96"
+            className="absolute -bottom-80 size-64 -scale-x-100 object-contain md:-bottom-24 md:left-0 2xl:-bottom-40 2xl:-left-56 2xl:size-96"
           />
           {/* main title */}
           <div className="flex flex-col text-center md:w-[32rem]">
